@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Summary</title>
+</head>
+<body>
+    <h1>College Summary</h1>
+    <table border="1px" cellpadding="5px">
+        <th>Name</th>
+        <th>Email</th>
+        <th>MockTest1 Score</th>
+
+        {% for student in students %}
+        <tr>
+            {% for column in student %}
+            <td> {{ column }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

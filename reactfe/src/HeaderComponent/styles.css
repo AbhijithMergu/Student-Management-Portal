@@ -1,0 +1,21 @@
+.header{
+    background-color: teal;
+    color:white;
+    padding:50px;
+}
+
+.header >h2{
+    float: left;
+    margin-top:10px;
+}
+.menu>span{
+    position: center;
+    float:right;
+    padding: 10px;
+    margin-right:40px;
+}
+.menu>span:hover{
+    background-color: white;
+    color:black;
+    fill-opacity: 40%;
+}

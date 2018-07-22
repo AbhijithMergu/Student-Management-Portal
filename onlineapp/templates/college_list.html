@@ -1,0 +1,38 @@
+{%extends "_base.html" %}
+
+{%block content %}
+    <div class="container">
+        {%if 'onlineapp.add_college' in user_permissions%}
+        <form action = "{%url 'onlineapp:add_college'%}">
+        <button  class="btn btn-primary" type = "submit"  >
+            Add College
+        </button>
+        </form>
+        {% endif %}
+        <br/>
+        <br/>
+        <table class="table table-bordered">
+            <tr>
+                <th> ID </th>
+                <th> Acronym </th>
+                <th> Name </th>
+                {%if 'onlineapp.change_college' in user_permissions and 'onlineapp.delete_college' in user_permissions %}
+                <th> Actions </th>
+                {% endif %}
+            </tr>
+        {% for college in colleges%}
+            <tr>
+                <td>{{ college.id }}</td>
+                <td>{{ college.acronym }}</td>
+                <td><a href="{%url 'onlineapp:college_details_id' college.id %}">{{ college.name}}</a></td>
+                {%if 'onlineapp.change_college' in user_permissions and 'onlineapp.delete_college' in user_permissions %}
+                <td><a href="{%url 'onlineapp:edit_college' college.id %}">edit</a>
+                    <a href = "{%url 'onlineapp:delete_college' college.id%}">delete</a>
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}
+
